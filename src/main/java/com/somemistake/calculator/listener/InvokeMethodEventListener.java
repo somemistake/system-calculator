@@ -11,7 +11,7 @@ public class InvokeMethodEventListener extends EventListener<ContextRefreshed> {
 
     @Override
     public void action(ApplicationContext context) {
-        for (Class<?> parentClass : context.getConfig().getReflections().getSubTypesOf(Object.class)) {
+        for (Class<?> parentClass : context.getConfig().getPackageInfo().getSubTypesOf(Object.class)) {
             for (Method method : parentClass.getDeclaredMethods()) {
                 if (method.isAnnotationPresent(InvokeMethod.class)) {
                     Object target = context.getObject(parentClass);
