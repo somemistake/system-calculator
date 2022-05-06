@@ -7,15 +7,15 @@ import java.util.Map;
 public class ApplicationRunner {
 
     public static ApplicationContext run(Class<?> packageClass) {
-        return new CalculatorApplication(packageClass).run();
+        return new Application(packageClass).run();
     }
 
     public static ApplicationContext run(String packageName, Class<?>... values) {
-        return new CalculatorApplication(packageName, values).run();
+        return new Application(packageName, values).run();
     }
 
     public static ApplicationContext run(String packageName, Map<Class, Class> classes) {
-        return new CalculatorApplication(packageName, classes).run();
+        return new Application(packageName, classes).run();
     }
 
 }
