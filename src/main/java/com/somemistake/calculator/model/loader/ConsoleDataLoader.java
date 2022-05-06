@@ -1,12 +1,11 @@
-package com.somemistake.calculator.loader;
+package com.somemistake.calculator.model.loader;
 
 import com.somemistake.calculator.annotations.Inject;
 import com.somemistake.calculator.annotations.Logging;
 import com.somemistake.calculator.annotations.Singleton;
-import com.somemistake.calculator.context.ApplicationContext;
 import com.somemistake.calculator.model.Data;
-import com.somemistake.calculator.model.exception.CalculatorException;
-import com.somemistake.calculator.validator.Validator;
+import com.somemistake.calculator.exception.ApplicationException;
+import com.somemistake.calculator.model.validator.Validator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,7 +38,7 @@ public class ConsoleDataLoader implements DataLoader {
 
             return data;
         } catch (IOException e) {
-            throw new CalculatorException("Cannot load data", e);
+            throw new ApplicationException("Cannot load data", e);
         }
     }
 

@@ -2,14 +2,12 @@ package com.somemistake.calculator.model;
 
 import com.somemistake.calculator.annotations.Inject;
 import com.somemistake.calculator.annotations.InvokeMethod;
-import com.somemistake.calculator.annotations.Logging;
 import com.somemistake.calculator.annotations.Singleton;
-import com.somemistake.calculator.formatter.Formatter;
-import com.somemistake.calculator.loader.DataLoader;
-import com.somemistake.calculator.printer.Printer;
+import com.somemistake.calculator.model.formatter.Formatter;
+import com.somemistake.calculator.model.loader.DataLoader;
+import com.somemistake.calculator.model.printer.Printer;
 
 @Singleton
-//@Logging
 public class Calculator {
 
     @Inject

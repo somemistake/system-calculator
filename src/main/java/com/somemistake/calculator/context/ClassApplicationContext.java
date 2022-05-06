@@ -2,7 +2,7 @@ package com.somemistake.calculator.context;
 
 import com.somemistake.calculator.config.Config;
 import com.somemistake.calculator.factory.BeanFactory;
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 
 public class ClassApplicationContext extends ApplicationContext {
 
@@ -24,7 +24,7 @@ public class ClassApplicationContext extends ApplicationContext {
         }
 
         if (target == null) {
-            throw new CalculatorException("All interfaces should have implementations in configuration class");
+            throw new ApplicationException("All interfaces should have implementations in configuration class");
         }
 
         Class<?> targetClass = target.getClass();

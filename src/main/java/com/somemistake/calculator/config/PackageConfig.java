@@ -1,6 +1,6 @@
 package com.somemistake.calculator.config;
 
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
 
@@ -20,7 +20,7 @@ public class PackageConfig implements Config {
 
     public PackageConfig(String packageName, Class... values) {
         if (values.length % 2 != 0)
-            throw new CalculatorException("Each key must have a value");
+            throw new ApplicationException("Each key must have a value");
 
         this.packageInfo = new Reflections(packageName, new SubTypesScanner(false));
         this.classes = new HashMap<>();
@@ -38,7 +38,7 @@ public class PackageConfig implements Config {
         Set<Class<? extends T>> classes = packageInfo.getSubTypesOf(interfaceClass);
 
         if (classes.size() != 1)
-            throw new CalculatorException(
+            throw new ApplicationException(
                     String.format("Interface %s has more than 1 or 0 implementations", interfaceClass.getName()));
 
         Class implementationClass = classes.iterator().next();

@@ -4,7 +4,7 @@ import com.somemistake.calculator.annotations.Singleton;
 import com.somemistake.calculator.config.Config;
 import com.somemistake.calculator.configurator.ProxyConfigurator;
 import com.somemistake.calculator.factory.BeanFactory;
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 import com.somemistake.calculator.processor.Processor;
 import com.somemistake.calculator.publisher.EventPublisher;
 import com.somemistake.calculator.publisher.Publisher;
@@ -36,7 +36,7 @@ public abstract class ApplicationContext {
                 this.processors.add(processorClass.getDeclaredConstructor().newInstance());
             }
         } catch (Exception e) {
-            throw new CalculatorException("Cannot create instance of processor class");
+            throw new ApplicationException("Cannot create instance of processor class");
         }
         this.configurators = new ArrayList<>();
         try {
@@ -44,7 +44,7 @@ public abstract class ApplicationContext {
                 this.configurators.add(configuratorClass.getDeclaredConstructor().newInstance());
             }
         } catch (Exception e) {
-            throw new CalculatorException("Cannot create instance of configurator class");
+            throw new ApplicationException("Cannot create instance of configurator class");
         }
         this.publisher.publishEvent(CONTEXT_STARTED);
         createSingletons();
@@ -71,7 +71,7 @@ public abstract class ApplicationContext {
                 Class<?> targetClass = packageClass;
 
                 if (interfaces.length > 1) {
-                    throw new CalculatorException(
+                    throw new ApplicationException(
                             String.format("%s has more than 1 interfaces", packageClass.getCanonicalName()));
                 } else if (interfaces.length == 1) {
                     targetClass = interfaces[0];

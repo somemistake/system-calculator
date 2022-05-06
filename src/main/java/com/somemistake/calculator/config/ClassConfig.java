@@ -1,7 +1,7 @@
 package com.somemistake.calculator.config;
 
 import com.somemistake.calculator.annotations.Configuration;
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
 
@@ -32,7 +32,7 @@ public class ClassConfig implements Config {
                             try {
                                 return configurationClass.getDeclaredConstructor().newInstance();
                             } catch (Exception e) {
-                                throw new CalculatorException(
+                                throw new ApplicationException(
                                         String.format("Cannot create instance of %s", configurationClass.getCanonicalName()));
                             }
                         }
@@ -54,7 +54,7 @@ public class ClassConfig implements Config {
                     try {
                         return (T) method.invoke(configuration);
                     } catch (Exception e) {
-                        throw new CalculatorException(
+                        throw new ApplicationException(
                                 String.format("Cannot create instance of %s class in %s configuration",
                                         interfaceClass.getCanonicalName(), configurationClass.getCanonicalName()));
                     }

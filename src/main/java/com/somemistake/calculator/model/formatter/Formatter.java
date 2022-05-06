@@ -1,4 +1,4 @@
-package com.somemistake.calculator.formatter;
+package com.somemistake.calculator.model.formatter;
 
 import com.somemistake.calculator.model.Data;
 

@@ -1,7 +1,7 @@
-package com.somemistake.calculator.loader;
+package com.somemistake.calculator.model.loader;
 
 import com.somemistake.calculator.model.Data;
-import com.somemistake.calculator.validator.Validator;
+import com.somemistake.calculator.model.validator.Validator;
 
 public interface DataLoader {
     Data loadData();

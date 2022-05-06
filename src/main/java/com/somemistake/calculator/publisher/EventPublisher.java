@@ -3,7 +3,7 @@ package com.somemistake.calculator.publisher;
 import com.somemistake.calculator.context.ApplicationContext;
 import com.somemistake.calculator.event.ContextEvent;
 import com.somemistake.calculator.listener.EventListener;
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class EventPublisher implements Publisher {
                 this.listeners.add(listenerClass.getDeclaredConstructor().newInstance());
             }
         } catch (Exception e) {
-            throw new CalculatorException("Cannot create instance of event listener class");
+            throw new ApplicationException("Cannot create instance of event listener class");
         }
     }
 

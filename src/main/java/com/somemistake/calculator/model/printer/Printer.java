@@ -1,4 +1,4 @@
-package com.somemistake.calculator.printer;
+package com.somemistake.calculator.model.printer;
 
 import com.somemistake.calculator.model.Data;
 

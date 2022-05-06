@@ -1,8 +1,8 @@
-package com.somemistake.calculator.validator;
+package com.somemistake.calculator.model.validator;
 
 import com.somemistake.calculator.annotations.Logging;
 import com.somemistake.calculator.annotations.Singleton;
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,10 +17,10 @@ public class CommonValidator implements Validator {
 
     private final String divider = " ";
 
-    public void validate(String command) throws CalculatorException {
+    public void validate(String command) throws ApplicationException {
         Matcher matcher = inputPattern.matcher(command);
         if (!matcher.matches())
-            throw new CalculatorException(
+            throw new ApplicationException(
                     String.format("Command %s is incorrect", command));
 
         String[] values = command.split(divider);
@@ -30,12 +30,12 @@ public class CommonValidator implements Validator {
         int toSystem = Integer.parseInt(values[5]);
 
         if (fromSystem == toSystem)
-            throw new CalculatorException("from system equals to system");
+            throw new ApplicationException("from system equals to system");
 
         for (char var1 : number) {
             long var2 = getNumberFromChar(var1);
             if (var2 >= fromSystem)
-                throw new CalculatorException(
+                throw new ApplicationException(
                         String.format("Numbers bigger than %s calculus system", fromSystem));
         }
 

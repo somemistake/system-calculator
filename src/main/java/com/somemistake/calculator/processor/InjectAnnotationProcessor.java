@@ -2,7 +2,7 @@ package com.somemistake.calculator.processor;
 
 import com.somemistake.calculator.annotations.Inject;
 import com.somemistake.calculator.context.ApplicationContext;
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 
 import java.lang.reflect.Field;
 
@@ -19,7 +19,7 @@ public class InjectAnnotationProcessor implements Processor {
                 try {
                     field.set(object, value);
                 } catch (IllegalAccessException e) {
-                    throw new CalculatorException(
+                    throw new ApplicationException(
                             String.format("Cannot set value to %s field", object.getClass()));
                 }
             }

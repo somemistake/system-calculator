@@ -1,7 +1,7 @@
 package com.somemistake.calculator.factory;
 
 import com.somemistake.calculator.config.Config;
-import com.somemistake.calculator.model.exception.CalculatorException;
+import com.somemistake.calculator.exception.ApplicationException;
 
 public class BeanFactory {
 
@@ -15,7 +15,7 @@ public class BeanFactory {
         try {
             return target.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            throw new CalculatorException(
+            throw new ApplicationException(
                     String.format("Cannot create instance of %s class", target.getName()));
         }
     }
