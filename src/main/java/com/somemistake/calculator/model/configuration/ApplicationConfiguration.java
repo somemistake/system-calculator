@@ -1,4 +1,4 @@
-package com.somemistake.calculator.configuration;
+package com.somemistake.calculator.model.configuration;
 
 import com.somemistake.calculator.annotations.Configuration;
 import com.somemistake.calculator.model.formatter.CommonFormatter;
