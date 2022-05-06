@@ -5,7 +5,6 @@ import com.somemistake.calculator.factory.BeanFactory;
 
 public class PackageApplicationContext extends ApplicationContext {
 
-
     public PackageApplicationContext(Config config, BeanFactory beanFactory) {
         super(config, beanFactory);
     }

@@ -6,7 +6,6 @@ import com.somemistake.calculator.exception.ApplicationException;
 
 public class ClassApplicationContext extends ApplicationContext {
 
-
     public ClassApplicationContext(Config config, BeanFactory beanFactory) {
         super(config, beanFactory);
     }

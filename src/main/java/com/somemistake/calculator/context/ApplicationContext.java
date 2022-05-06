@@ -48,6 +48,7 @@ public abstract class ApplicationContext {
         }
         this.publisher.publishEvent(CONTEXT_STARTED);
         createSingletons();
+        this.publisher.publishEvent(CONTEXT_REFRESHED);
     }
 
     public abstract <T> T getObject(Class<T> type);
@@ -80,7 +81,6 @@ public abstract class ApplicationContext {
                 cache.put(targetClass, this.getObject(targetClass));
             }
         }
-        publisher.publishEvent(CONTEXT_REFRESHED);
     }
 
     public Config getConfig() {
